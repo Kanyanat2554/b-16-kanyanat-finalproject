@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Player : Character
 {
+    float movementSpeed = 5.0f;
 
-
-    /*private float attackSpeed;
+     /*private float attackSpeed;
     public float AttackSpeed { get; set; }
 
     private float attackRange;
-    public float AttackRange {  get; set; }
+    public float AttackRange {  get; set; }*/
 
     public void Move()
     {
@@ -21,7 +21,7 @@ public class Player : Character
         Vector3 movement = new Vector3(moveX, moveY, 0f) * movementSpeed * Time.fixedDeltaTime;
         transform.Translate(movement);
     }
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         if (!IsDead())
         {
