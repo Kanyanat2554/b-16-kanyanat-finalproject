@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    private int currentHp;
+    /*private int currentHp;
     public int CurrentHp { get; protected set; }
 
     private int maxHp;
@@ -41,5 +41,20 @@ public abstract class Character : MonoBehaviour
         //get components for prefabs
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+    }*/
+
+    public int HP { get; protected set; }
+    public int MaxHP { get; protected set; }
+
+    public virtual void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+        {
+            HP = 0;
+            Die();
+        }
     }
+
+    protected abstract void Die();
 }
