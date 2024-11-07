@@ -4,29 +4,61 @@ using UnityEngine;
 
 public class KillerBee : Monster
 {
+
+    [SerializeField] private Vector2 velocity;
+    [SerializeField] private Transform[] movePoints;
+
+    
+
+    void Update()
+    {
+        Move();
+    }
+
+    /*public override void Behavior()
+    {
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+
+        //เช็คตำแน่งปัจจุบันถ้าเลยขอบซ้ายให้กลับด้าน
+        if (rb.position.x <= movePoints[0].position.x && velocity.x < 0)
+        {
+            Flip();
+        }
+
+        //เช็คตำแน่งปัจจุบันถ้าเลยขอบขวาให้กลับด้าน
+        else if (rb.position.x >= movePoints[1].position.x && velocity.x > 0)
+        {
+            Flip();
+        }
+    }*/
+
+    // Flip() ทำการกลับด้านตัวละคร
+    void Flip()
+    {
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+    }
     public KillerBee()
     {
-        MaxHP = 50;
-        HP = MaxHP;
-        Damage = 5;
+        MaxHp = 50;
+        CurrentHp = MaxHp;
     }
 
-    private void Update()
+    public void Move()
     {
-        transform.Translate(Vector2.right * Time.deltaTime);
-    }
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        //เช็คตำแน่งปัจจุบันถ้าเลยขอบซ้ายให้กลับด้าน
+        if (rb.position.x <= movePoints[0].position.x && velocity.x < 0)
         {
-            other.GetComponent<Player>().TakeDamage(Damage);
+            Flip();
         }
-    }
 
-    protected override void Die()
-    {
-        Destroy(gameObject);
-        Debug.Log("Bee has been destroyed");
+        //เช็คตำแน่งปัจจุบันถ้าเลยขอบขวาให้กลับด้าน
+        else if (rb.position.x >= movePoints[1].position.x && velocity.x > 0)
+        {
+            Flip();
+        }
     }
 }

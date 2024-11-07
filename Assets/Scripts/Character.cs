@@ -4,37 +4,37 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    /*private int currentHp;
+    [SerializeField] private int currentHp;
     public int CurrentHp { get; protected set; }
 
     private int maxHp;
     public int MaxHp { get; protected set; }
 
-    private float movementSpeed;
-    public float MovementSpeed { get; set; }
+    //[SerializeField] private float movementSpeed;
+    //public float MovementSpeed { get; set; }
 
-    protected Animator anim;
-    protected Rigidbody2D rb;
+    [SerializeField]  protected Animator anim;
+    [SerializeField]  protected Rigidbody2D rb;
 
     //Method
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         CurrentHp -= damage;
-        if (CurrentHp < 0) CurrentHp = 0;
-
-        IsDead();
-    }
-
-    public bool IsDead()
-    {
         if (CurrentHp <= 0)
         {
-            Destroy(this.gameObject);
-            return true;
+            CurrentHp = 0;
+
+            Debug.Log($"{this.name} took {damage} damage, Remaining Health: {this.CurrentHp}");
+
+            Die();
         }
-        else return false;
     }
-    public virtual void Init(int newHealth)
+
+    protected virtual void Die()
+    {
+        Destroy(this.gameObject);
+    }
+    /*public virtual void Init(int newHealth)
     {
         CurrentHp = newHealth;
         
@@ -42,19 +42,4 @@ public abstract class Character : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }*/
-
-    public int HP { get; protected set; }
-    public int MaxHP { get; protected set; }
-
-    public virtual void TakeDamage(int damage)
-    {
-        HP -= damage;
-        if (HP <= 0)
-        {
-            HP = 0;
-            Die();
-        }
-    }
-
-    protected abstract void Die();
 }

@@ -6,20 +6,12 @@ public class KingCobra : Monster
 {
     public KingCobra()
     {
-        MaxHP = 110;
-        HP = MaxHP;
-        Damage = 20;
+        MaxHp = 110;
+        CurrentHp = MaxHp;
     }
 
-    public void Attack()
+    /*public override void Attack()
     {
-        Debug.Log("Cobra uses Poison Attack!");
-    }
-
-
-    protected override void Die()
-    {
-        Destroy(gameObject);
-        Debug.Log("Cobra has been destroyed");
-    }
+        Debug.Log("Cobra shoots");
+    }*/
 }

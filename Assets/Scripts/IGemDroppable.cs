@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : Character
+public interface IGemDroppable
 {
-    
+    void DropGems(Player player);
 }

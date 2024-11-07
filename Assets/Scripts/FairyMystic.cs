@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FairyMystic : Ally
+public class FairyMystic : Ally, IHealable
 {
-    private int healAmount;
-
-    private void Start()
+    public void Heal(Player player)
     {
-        healAmount = Random.Range(10, 50);
-    }
-
-    public override void Interact(Player player)
-    {
-        player.TakeDamage(-healAmount); // ฮีลให้ Player
-        healAmount = 0;  // ฮีลครั้งเดียว
+        int healAmount = Random.Range(30, 51);
+        player.TakeDamage(-healAmount); // Negative damage to heal
+        Debug.Log($"Player healed for {healAmount} HP");
     }
 }
