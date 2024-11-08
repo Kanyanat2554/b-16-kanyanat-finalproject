@@ -127,6 +127,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9143357743640119298, guid: b95aec07d384752479291a4a8489963e, type: 3}
   m_PrefabInstance: {fileID: 5325673297223444084}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &25639738 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2900736749600020803, guid: ef25328275f2d3e47aaad3f0b6370c26, type: 3}
+  m_PrefabInstance: {fileID: 4070831945539773313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &54910244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3197806033814222437, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
@@ -254,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 320826450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.23, y: 14.8, z: -0.054904796}
+  m_LocalPosition: {x: 47.23, y: 12.14, z: -0.054904796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1064,7 +1069,7 @@ Transform:
   m_GameObject: {fileID: 1115305017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.23, y: 28.19, z: -0.054904796}
+  m_LocalPosition: {x: 47.23, y: 25.46, z: -0.054904796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4165,6 +4170,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1568707218}
+    - target: {fileID: 7239278705610713048, guid: ef25328275f2d3e47aaad3f0b6370c26, type: 3}
+      propertyPath: damageHit
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239278705610713048, guid: ef25328275f2d3e47aaad3f0b6370c26, type: 3}
+      propertyPath: <Bullet>k__BackingField
+      value: 
+      objectReference: {fileID: 6670809299651898030, guid: 6c8ad01366174384ca1bb6afd7b1d59b, type: 3}
+    - target: {fileID: 7239278705610713048, guid: ef25328275f2d3e47aaad3f0b6370c26, type: 3}
+      propertyPath: <SpawnPoint>k__BackingField
+      value: 
+      objectReference: {fileID: 25639738}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

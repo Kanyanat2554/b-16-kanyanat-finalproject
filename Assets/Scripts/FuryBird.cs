@@ -13,7 +13,6 @@ public class FuryBird : Monster
     {
         rb = GetComponent<Rigidbody2D>();
         Init(80);
-        Debug.Log("Fury Bird health: " + CurrentHp);
     }
 
     private void FixedUpdate()

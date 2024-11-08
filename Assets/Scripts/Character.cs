@@ -25,7 +25,6 @@ public abstract class Character : MonoBehaviour
         CurrentHp -= damage;
 
         IsDead();
-        
     }
 
     public bool IsDead()
@@ -46,6 +45,8 @@ public abstract class Character : MonoBehaviour
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        Debug.Log($"({this} has {CurrentHp} left)");
     }
 
 }

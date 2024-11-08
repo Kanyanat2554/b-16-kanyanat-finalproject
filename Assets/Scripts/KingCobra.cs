@@ -15,14 +15,18 @@ public class KingCobra : Monster, IShootable
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
 
+    private float bulletLifeTime = 8.0f;
+
     void Start()
     {
-        Init(100);
+        Init(110);
         WaitTime = 0.0f;
         ReloadTime = 3.0f;
         DamageHit = 30;
-        AttackRange = 6;
+        AttackRange = 45;
         player = GameObject.FindObjectOfType<Player>();
+
+        anim= GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -55,6 +59,14 @@ public class KingCobra : Monster, IShootable
             //GetComponent Script Rock from obj (bullet)
             //initialize Rock's attributes
 
+            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                float direction = transform.localScale.x > 0 ? 1f : -1f;
+                rb.velocity = new Vector2(direction * 20f, 0); //
+            }
+
+            Destroy(poison, bulletLifeTime);
             WaitTime = 0;
         }
 

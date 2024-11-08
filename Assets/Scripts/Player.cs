@@ -42,6 +42,8 @@ public class Player : Character, IShootable
             r2d.AddForce(new Vector2(0, jumpForce));
         }
         Shoot();
+
+        Debug.Log($"{this.name} has {CurrentHp}");
     }
 
     void FixedUpdate()
