@@ -45,6 +45,7 @@ public class KillerBee : Monster
     {
         velocity *= -1;
 
+
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;

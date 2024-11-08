@@ -7,6 +7,8 @@ public class FuryBird : Monster
     [SerializeField] private Vector2 velocity;
     [SerializeField] private Transform[] movePoints;
 
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,23 +29,19 @@ public class FuryBird : Monster
         
         if (rb.position.y <= movePoints[0].position.y && velocity.y < 0)
         {
-            FlipCharacter();
+            ChangeDirection();
         }
 
         
         else if (rb.position.y >= movePoints[1].position.y && velocity.y > 0)
         {
-            FlipCharacter();
+            ChangeDirection();
         }
     }
 
     // method
-    private void FlipCharacter()
+    private void ChangeDirection()
     {
         velocity.y *= -1;
-
-        Vector2 scale = transform.localScale;
-        scale.y *= -1;
-        transform.localScale = scale;
     }
 }
