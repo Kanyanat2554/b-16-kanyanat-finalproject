@@ -43,7 +43,7 @@ public class Player : Character, IShootable
         }
         Shoot();
 
-        Debug.Log($"{this.name} has {CurrentHp}");
+        //Debug.Log($"{this.name} has {CurrentHp}");
     }
 
     void FixedUpdate()
@@ -66,6 +66,7 @@ public class Player : Character, IShootable
         else if (move < 0 && facingRight)
             Flip();
 
+        IsDead();
         
     }
     void Flip()
@@ -127,7 +128,29 @@ public class Player : Character, IShootable
             WaitTime = 0;
         }
     }
-   
 
-   
+
+
+    public List<Gem> collectedItems = new List<Gem>(); // สะสมไอเทมที่เก็บมา
+
+    // ฟังก์ชันสะสม item ที่เก็บมา
+    public void CollectItem(Gem item)
+    {
+        collectedItems.Add(item); // เพิ่ม item ที่เก็บเข้ามาใน list
+        Debug.Log("Collected: " + item.itemName); // แสดงชื่อ item ที่เก็บได้
+        // ถ้าต้องการแสดงจำนวนไอเทมที่เก็บไว้
+        Debug.Log("Total items collected: " + collectedItems.Count);
+    }
+
+    // ฟังก์ชันแสดงข้อมูลไอเทมที่สะสม
+    public void ShowCollectedItems()
+    {
+        foreach (Gem item in collectedItems)
+        {
+            Debug.Log("Collected Item: " + item.itemName + " with value: " + item.itemValue);
+        }
+    }
+
+
+
 }

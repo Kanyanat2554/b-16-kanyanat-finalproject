@@ -29,7 +29,7 @@ public abstract class Character : MonoBehaviour
 
     public bool IsDead()
     {
-        if (currentHp<= 0)
+        if (currentHp <= 0)
         {
             Destroy(this.gameObject);
             return true;
