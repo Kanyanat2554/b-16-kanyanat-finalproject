@@ -32,6 +32,7 @@ public class Player : Character
     // Use this for initialization
     void Start()
     {
+        Init(100);
         WaitTime = 0.0f;
         ReloadTime = 1.0f;
         r2d = GetComponent<Rigidbody2D>();
@@ -78,6 +79,7 @@ public class Player : Character
         transform.localScale = theScale;
     }
 
+<<<<<<< HEAD
     public void Attack(string spellType)
     {
         if (spellType == "Water" && gems["Water"] >= waterGemRequirement)
@@ -110,6 +112,8 @@ public class Player : Character
     }
 
     
+=======
+>>>>>>> 175c4a3d46c0633d7e24c2e1b3f42732b86e5a80
 
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public Transform SpawnPoint { get; set; }

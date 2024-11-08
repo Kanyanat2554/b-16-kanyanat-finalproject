@@ -10,6 +10,7 @@ public class KillerBee : Monster
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Init(50);
         Debug.Log("Killer Bee health: " + CurrentHp);
     }
@@ -24,17 +25,19 @@ public class KillerBee : Monster
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
-        
+
         if (rb.position.x <= movePoints[0].position.x && velocity.x < 0)
         {
             FlipCharacter();
         }
 
-        
+
         else if (rb.position.x >= movePoints[1].position.x && velocity.x > 0)
         {
             FlipCharacter();
         }
+
+        Debug.Log("bee is moving: " + rb.position);
     }
 
     // method
@@ -45,5 +48,8 @@ public class KillerBee : Monster
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+
+        Debug.Log("Flipped character. New velocity: " + velocity);
+
     }
 }
