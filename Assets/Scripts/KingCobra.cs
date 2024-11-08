@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingCobra : Monster
+public class KingCobra : Monster, IShootable
 {
     float attackRange;
     public float AttackRange { get { return attackRange; } set { attackRange = value; } }
@@ -51,7 +51,7 @@ public class KingCobra : Monster
             anim.SetTrigger("Shoot");
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Poison poison = obj.GetComponent<Poison>();
-            //Poison.Init(20, this);
+            poison.Init(30, this);
             //GetComponent Script Rock from obj (bullet)
             //initialize Rock's attributes
 

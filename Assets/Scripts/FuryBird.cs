@@ -9,6 +9,7 @@ public class FuryBird : Monster
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Init(80);
         Debug.Log("Fury Bird health: " + CurrentHp);
     }
@@ -39,7 +40,7 @@ public class FuryBird : Monster
     // method
     private void FlipCharacter()
     {
-        velocity *= -1;
+        velocity.y *= -1;
 
         Vector2 scale = transform.localScale;
         scale.y *= -1;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : Character
+public class Player : Character, IShootable
 {
     private int attackSpeed;
     private int attackRange;
@@ -23,11 +23,6 @@ public class Player : Character
     public LayerMask whatIsGround;
     public float jumpForce = 1200.0f;
 
-    public Player()
-    {
-        MaxHp = 100;
-        CurrentHp = MaxHp;
-    }
 
     // Use this for initialization
     void Start()
@@ -79,7 +74,7 @@ public class Player : Character
         transform.localScale = theScale;
     }
 
-<<<<<<< HEAD
+
     public void Attack(string spellType)
     {
         if (spellType == "Water" && gems["Water"] >= waterGemRequirement)
@@ -112,8 +107,7 @@ public class Player : Character
     }
 
     
-=======
->>>>>>> 175c4a3d46c0633d7e24c2e1b3f42732b86e5a80
+
 
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public Transform SpawnPoint { get; set; }
@@ -127,7 +121,7 @@ public class Player : Character
         {
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Spell spell = obj.GetComponent<Spell>();
-            
+            spell.Init(45, this);
             WaitTime = 0;
         }
     }
