@@ -331,7 +331,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 45
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8, y: 37.2, z: -10}
+  m_LocalPosition: {x: 5.8, y: 5.9, z: -10}
   m_LocalScale: {x: 2.3875, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2951,8 +2951,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   jumpForce: 1200
-  <Bullet>k__BackingField: {fileID: 0}
+  <Bullet>k__BackingField: {fileID: 4338064059342593918, guid: 5661b4063b351a04f9a23202b2c52a3f, type: 3}
   <SpawnPoint>k__BackingField: {fileID: 1274335472}
+  collectedItems: []
 --- !u!61 &1568707221
 BoxCollider2D:
   m_ObjectHideFlags: 0

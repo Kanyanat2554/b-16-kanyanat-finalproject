@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class Spell : Weapon
 {
-    private Rigidbody2D rb2d;
-    private Vector2 force;
+    public int spellDamage = 35;  // ความเสียหายของ Spell
+    public float speed = 2f; // ความเร็วของ Spell
 
-    // start
     private void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        Damage = 20;
-        force = new Vector2(GetShootDirection() * 5, 4);
         Move();
     }
 
-    // override abstract methods
+    // ฟังก์ชันเมื่อ Spell ชนกับศัตรู
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // ตรวจสอบว่า Spell ชนกับศัตรู
+        Monster enemy = other.GetComponent<Monster>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage); // เรียกฟังก์ชันให้ศัตรูรับความเสียหาย
+            Destroy(gameObject);      // ทำลาย Spell หลังจากโจมตี
+        }
+    }
+
     public override void Move()
     {
-        //Debug.Log("Rock move with Rigidbody:force");
-        rb2d.AddForce(force, ForceMode2D.Impulse);
+        // ตั้งค่าความเร็วในการเคลื่อนที่ของ Spell
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = transform.right * speed; // เคลื่อนที่ในทิศทางที่กำหนด
+        }
+
+        // ทำลาย Spell หลังจากเวลา 3 วินาที (สามารถปรับได้)
+        Destroy(gameObject, 3f);
     }
 
     public override void OnHitWith(Character character)
     {
-        if (character is Player)
+        if (character is Monster)
         {
             character.TakeDamage(this.Damage);
         }
     }
+    
 }
