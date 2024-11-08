@@ -15,7 +15,7 @@ public class Player : Character
     bool facingRight = true;
 
     Rigidbody2D r2d;
-    Animator anim;
+    Animator animator;
 
     public bool grounded = false;
     public Transform groundCheck;
@@ -35,14 +35,14 @@ public class Player : Character
         WaitTime = 0.0f;
         ReloadTime = 1.0f;
         r2d = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool("Ground", false);
+            animator.SetBool("Ground", false);
             r2d.AddForce(new Vector2(0, jumpForce));
         }
         Shoot();
@@ -53,13 +53,13 @@ public class Player : Character
         WaitTime += Time.fixedDeltaTime;
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        anim.SetBool("Ground", grounded);
+        animator.SetBool("Ground", grounded);
 
-        anim.SetFloat("vSpeed", r2d.velocity.y);
+        animator.SetFloat("vSpeed", r2d.velocity.y);
 
         float move = Input.GetAxis("Horizontal");
 
-        anim.SetFloat("Speed", Mathf.Abs(move));
+        animator.SetFloat("Speed", Mathf.Abs(move));
 
         r2d.velocity = new Vector2(move * maxSpeed, r2d.velocity.y);
 
@@ -109,11 +109,7 @@ public class Player : Character
         }
     }
 
-    protected override void Die()
-    {
-        Debug.Log("Player Died!");
-        // Handle player death
-    }
+    
 
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public Transform SpawnPoint { get; set; }
@@ -132,6 +128,6 @@ public class Player : Character
         }
     }
    
-    }
+
    
 }

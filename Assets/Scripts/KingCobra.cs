@@ -4,14 +4,59 @@ using UnityEngine;
 
 public class KingCobra : Monster
 {
-    public KingCobra()
+    float attackRange;
+    public float AttackRange { get { return attackRange; } set { attackRange = value; } }
+
+    public Player player;
+
+    [field: SerializeField] public Transform SpawnPoint { get; set; }
+    [field: SerializeField] public GameObject Bullet { get; set; }
+
+    public float ReloadTime { get; set; }
+    public float WaitTime { get; set; }
+
+    void Start()
     {
-        MaxHp = 110;
-        CurrentHp = MaxHp;
+        Init(100);
+        WaitTime = 0.0f;
+        ReloadTime = 3.0f;
+        DamageHit = 30;
+        AttackRange = 6;
+        player = GameObject.FindObjectOfType<Player>();
     }
 
-    /*public override void Attack()
+    void FixedUpdate()
     {
-        Debug.Log("Cobra shoots");
-    }*/
+        WaitTime += Time.fixedDeltaTime;
+        Behavior();
+    }
+
+    // override abstract method
+    public override void Behavior()
+    {
+        Vector2 distance = player.transform.position - transform.position;
+
+
+        if (distance.magnitude <= attackRange)
+        {
+            Shoot();
+        }
+    }
+
+    // method
+    public void Shoot()
+    {
+        if (WaitTime >= ReloadTime)
+        {
+            anim.SetTrigger("Shoot");
+            GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
+            Poison poison = obj.GetComponent<Poison>();
+            //Poison.Init(20, this);
+            //GetComponent Script Rock from obj (bullet)
+            //initialize Rock's attributes
+
+            WaitTime = 0;
+        }
+
+    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieSpirit : Ally, IGemDroppable
+public class FieSpirit : Ally
 {
     public void DropGems(Player player)
     {

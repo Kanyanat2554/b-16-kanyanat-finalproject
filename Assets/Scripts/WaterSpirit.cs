@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterSpirit : Ally, IGemDroppable
+public class WaterSpirit : Ally
 {
     public void DropGems(Player player)
     {

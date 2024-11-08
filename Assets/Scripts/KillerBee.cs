@@ -8,57 +8,42 @@ public class KillerBee : Monster
     [SerializeField] private Vector2 velocity;
     [SerializeField] private Transform[] movePoints;
 
-    
-
-    void Update()
+    private void Start()
     {
-        Move();
+        Init(50);
+        Debug.Log("Killer Bee health: " + CurrentHp);
     }
 
-    /*public override void Behavior()
+    private void FixedUpdate()
+    {
+        Behavior();
+    }
+
+    // override abstract method
+    public override void Behavior()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
-        //เช็คตำแน่งปัจจุบันถ้าเลยขอบซ้ายให้กลับด้าน
+        
         if (rb.position.x <= movePoints[0].position.x && velocity.x < 0)
         {
-            Flip();
+            FlipCharacter();
         }
 
-        //เช็คตำแน่งปัจจุบันถ้าเลยขอบขวาให้กลับด้าน
+        
         else if (rb.position.x >= movePoints[1].position.x && velocity.x > 0)
         {
-            Flip();
+            FlipCharacter();
         }
-    }*/
-
-    // Flip() ทำการกลับด้านตัวละคร
-    void Flip()
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
-    }
-    public KillerBee()
-    {
-        MaxHp = 50;
-        CurrentHp = MaxHp;
     }
 
-    public void Move()
+    // method
+    private void FlipCharacter()
     {
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        velocity *= -1;
 
-        //เช็คตำแน่งปัจจุบันถ้าเลยขอบซ้ายให้กลับด้าน
-        if (rb.position.x <= movePoints[0].position.x && velocity.x < 0)
-        {
-            Flip();
-        }
-
-        //เช็คตำแน่งปัจจุบันถ้าเลยขอบขวาให้กลับด้าน
-        else if (rb.position.x >= movePoints[1].position.x && velocity.x > 0)
-        {
-            Flip();
-        }
+        Vector2 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }

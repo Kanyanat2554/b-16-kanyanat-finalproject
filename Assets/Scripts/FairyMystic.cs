@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FairyMystic : Ally, IHealable
+public class FairyMystic : Ally
 {
     public void Heal(Player player)
     {

@@ -13,33 +13,35 @@ public abstract class Character : MonoBehaviour
     //[SerializeField] private float movementSpeed;
     //public float MovementSpeed { get; set; }
 
-    [SerializeField]  protected Animator anim;
-    [SerializeField]  protected Rigidbody2D rb;
+    public Animator anim;
+    public Rigidbody2D rb;
 
     //Method
+    public bool IsDead()
+    {
+        if (currentHp <= 0)
+        {
+            Destroy(this.gameObject);
+            return true;
+        }
+        else return false;
+    }
+
+    
     public virtual void TakeDamage(int damage)
     {
         CurrentHp -= damage;
-        if (CurrentHp <= 0)
-        {
-            CurrentHp = 0;
-
-            Debug.Log($"{this.name} took {damage} damage, Remaining Health: {this.CurrentHp}");
-
-            Die();
-        }
-    }
-
-    protected virtual void Die()
-    {
-        Destroy(this.gameObject);
-    }
-    /*public virtual void Init(int newHealth)
-    {
-        CurrentHp = newHealth;
         
-        //get components for prefabs
+        IsDead();
+    }
+
+    public virtual void Init(int newCurrentHealth)
+    {
+        CurrentHp = newCurrentHealth;
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-    }*/
+    }
+
+    
 }

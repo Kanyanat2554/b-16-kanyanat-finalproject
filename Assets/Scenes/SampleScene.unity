@@ -229,6 +229,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86613c6f580e8dd48bb170a597217da2, type: 3}
+--- !u!1 &320826450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 320826451}
+  m_Layer: 0
+  m_Name: Bird Move Point B
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &320826451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320826450}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.23, y: 12.89, z: -0.054904796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &330027717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5840025337179139019, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
@@ -337,8 +368,11 @@ MonoBehaviour:
   currentHp: 50
   anim: {fileID: 469469403}
   rb: {fileID: 469469402}
+  damageHit: 0
   velocity: {x: 0, y: 0}
-  movePoints: []
+  movePoints:
+  - {fileID: 696165176}
+  - {fileID: 1203063663}
 --- !u!50 &469469402
 Rigidbody2D:
   serializedVersion: 4
@@ -347,7 +381,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469469398}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1206,6 +1240,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86613c6f580e8dd48bb170a597217da2, type: 3}
+--- !u!1 &1115305017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115305018}
+  m_Layer: 0
+  m_Name: Bird Move Point A
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1115305018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115305017}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.23, y: 31.93, z: -0.054904796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1129917217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1461,6 +1526,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd9ed34f1f755643b41c4b41d7077e5, type: 3}
+--- !u!1 &1274335471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274335472}
+  m_Layer: 0
+  m_Name: Bullet Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274335472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274335471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: 2.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1568707224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275013299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,13 +1670,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: e9fda10831037d74680f105ae4339048, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1556902658}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: e9fda10831037d74680f105ae4339048, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1556902657}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: e9fda10831037d74680f105ae4339048, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1556902656}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: e9fda10831037d74680f105ae4339048, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1556902660}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: e9fda10831037d74680f105ae4339048, type: 3}
 --- !u!1001 &1308896804
 PrefabInstance:
@@ -1817,10 +1913,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1503399336}
   - component: {fileID: 1503399335}
-  - component: {fileID: 1503399340}
   - component: {fileID: 1503399339}
   - component: {fileID: 1503399338}
   - component: {fileID: 1503399337}
+  - component: {fileID: 1503399340}
   m_Layer: 0
   m_Name: Monster_KingCobra
   m_TagString: Untagged
@@ -2004,6 +2100,10 @@ MonoBehaviour:
   currentHp: 110
   anim: {fileID: 1503399337}
   rb: {fileID: 1503399338}
+  damageHit: 0
+  player: {fileID: 1568707218}
+  <SpawnPoint>k__BackingField: {fileID: 0}
+  <Bullet>k__BackingField: {fileID: 0}
 --- !u!1 &1510682440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3962191868524527138, guid: f8b0c5fdb6d14d145b9a43d7e215f5e6, type: 3}
@@ -3273,6 +3373,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4105362945620786471, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       insertIndex: -1
       addedObject: {fileID: 978066541}
+    - targetCorrespondingSourceObject: {fileID: 4105362945620786471, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1274335472}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       insertIndex: -1
@@ -3378,7 +3481,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556902653}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3397,7 +3500,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1556902658
+--- !u!114 &1556902660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3412,6 +3515,11 @@ MonoBehaviour:
   currentHp: 80
   anim: {fileID: 1556902654}
   rb: {fileID: 1556902657}
+  damageHit: 0
+  velocity: {x: 0, y: 0}
+  movePoints:
+  - {fileID: 1115305018}
+  - {fileID: 320826451}
 --- !u!1 &1568707214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
@@ -3441,6 +3549,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   jumpForce: 1200
+  <Bullet>k__BackingField: {fileID: 0}
+  <SpawnPoint>k__BackingField: {fileID: 1274335472}
 --- !u!61 &1568707221
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4076,6 +4186,37 @@ MonoBehaviour:
   currentHp: 100
   anim: {fileID: 1940889298}
   rb: {fileID: 1940889297}
+--- !u!1 &2052698322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052698323}
+  m_Layer: 0
+  m_Name: Win Point
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2052698323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052698322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.09, y: 73.38, z: -0.014157899}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2073059092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5840025337179139019, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
@@ -4539,3 +4680,6 @@ SceneRoots:
   - {fileID: 121529969}
   - {fileID: 696165176}
   - {fileID: 1203063663}
+  - {fileID: 2052698323}
+  - {fileID: 1115305018}
+  - {fileID: 320826451}
