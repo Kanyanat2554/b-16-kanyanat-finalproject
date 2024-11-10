@@ -25,11 +25,13 @@ public abstract class Character : MonoBehaviour
         CurrentHp -= damage;
 
         IsDead();
+
+        Debug.Log($"({this} has {CurrentHp} left");
     }
 
     public bool IsDead()
     {
-        if (currentHp <= 0)
+        if (CurrentHp <= 0)
         {
             Destroy(this.gameObject);
             return true;

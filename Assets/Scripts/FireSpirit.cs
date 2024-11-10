@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieSpirit : Ally
+public class FireSpirit : Ally
 {
-    public void DropGems(Player player)
+    /*public void DropGems(Player player)
     {
         int gemCount = Random.Range(1, 4);
         for (int i = 0; i < gemCount; i++)
@@ -12,5 +12,5 @@ public class FieSpirit : Ally
             player.CollectGem("Fire");
         }
         Debug.Log($"Dropped {gemCount} Fire gems");
-    }
+    }*/
 }

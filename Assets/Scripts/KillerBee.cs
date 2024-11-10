@@ -8,10 +8,14 @@ public class KillerBee : Monster
     [SerializeField] private Vector2 velocity;
     [SerializeField] private Transform[] movePoints;
 
+    private Player player;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Init(50);
+        DamageHit = 10;
+        player = GameObject.FindObjectOfType<Player>();
     }
 
     private void FixedUpdate()
@@ -46,5 +50,16 @@ public class KillerBee : Monster
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        Player player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            Debug.Log($"{other}");
+            player.TakeDamage(DamageHit);       
+        }
     }
 }

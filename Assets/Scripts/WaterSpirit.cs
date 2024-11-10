@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterSpirit : Ally
 {
-    public void DropGems(Player player)
+    /*public void DropGems(Player player)
     {
         int gemCount = Random.Range(1, 4);
         for (int i = 0; i < gemCount; i++)
@@ -12,5 +12,5 @@ public class WaterSpirit : Ally
             player.CollectGem("Water");
         }
         Debug.Log($"Dropped {gemCount} Water gems");
-    }
+    }*/
 }

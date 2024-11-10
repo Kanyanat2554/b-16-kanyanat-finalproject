@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class Player : Character, IShootable
 {
-    private int attackSpeed;
-    private int attackRange;
-    private Dictionary<string, int> gems = new Dictionary<string, int> { { "Water", 0 }, { "Fire", 0 } };
-    public int waterGemRequirement = 3;
-    public int fireGemRequirement = 5;
-
-    public float maxSpeed = 15f;
-    bool facingRight = true;
-
+    // movement
     Rigidbody2D r2d;
     Animator animator;
 
+    public float maxSpeed = 18f;
+    bool facingRight = true;
     public bool grounded = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
@@ -24,7 +18,6 @@ public class Player : Character, IShootable
     public float jumpForce = 1200.0f;
 
 
-    // Use this for initialization
     void Start()
     {
         Init(100);
@@ -41,7 +34,10 @@ public class Player : Character, IShootable
             animator.SetBool("Ground", false);
             r2d.AddForce(new Vector2(0, jumpForce));
         }
-        Shoot();
+        if ((gemsCollected >= fireGemRequirement))
+        {
+            Shoot();
+        }
 
         //Debug.Log($"{this.name} has {CurrentHp}");
     }
@@ -77,80 +73,37 @@ public class Player : Character, IShootable
         transform.localScale = theScale;
     }
 
-
-    public void Attack(string spellType)
-    {
-        if (spellType == "Water" && gems["Water"] >= waterGemRequirement)
-        {
-            // Cast water spell
-            gems["Water"] = 0;
-            Debug.Log("Water Spell Cast!");
-            // Instantiate water spell prefab
-        }
-        else if (spellType == "Fire" && gems["Fire"] >= fireGemRequirement)
-        {
-            // Cast fire spell
-            gems["Fire"] = 0;
-            Debug.Log("Fire Spell Cast!");
-            // Instantiate fire spell prefab
-        }
-        else
-        {
-            Debug.Log("Not enough gems!");
-        }
-    }
-
-    public void CollectGem(string gemType)
-    {
-        if (gems.ContainsKey(gemType))
-        {
-            gems[gemType]++;
-            Debug.Log($"{gemType} Gem Collected. Total: {gems[gemType]}");
-        }
-    }
-
     
 
-
+    // เก็บ Gem
+    public int gemsCollected = 0; // จำนวน Gem ที่ Player เก็บ
+    public int waterGemRequirement = 3;
+    public int fireGemRequirement = 5; // จำนวน Gem ที่ต้องการในการใช้ Spell
     [field: SerializeField] public GameObject Bullet { get; set; }
-    [field: SerializeField] public Transform SpawnPoint { get; set; }
-
+    [field: SerializeField] public Transform SpawnPoint { get; set; }  // Spell Prefab ที่จะพ่นออกมา
+    
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
+
+    public void CollectGem(Gem gem)
+    {
+        gemsCollected += gem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
+        Debug.Log("Gems collected: " + gemsCollected);
+
+        
+    }
+
     public void Shoot()
     {
-        // คลิกเมาส์ซ้าย >> shoot
-        if (Input.GetButtonDown("Fire1") && (WaitTime >= ReloadTime))
+        if (Input.GetButtonDown("Fire1"))
         {
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Spell spell = obj.GetComponent<Spell>();
             spell.Init(45, this);
-            WaitTime = 0;
+
+            gemsCollected -= 5;
+
+            Debug.Log("Spell Casted!");
         }
     }
-
-
-
-    public List<Gem> collectedItems = new List<Gem>(); // สะสมไอเทมที่เก็บมา
-
-    // ฟังก์ชันสะสม item ที่เก็บมา
-    public void CollectItem(Gem item)
-    {
-        collectedItems.Add(item); // เพิ่ม item ที่เก็บเข้ามาใน list
-        Debug.Log("Collected: " + item.itemName); // แสดงชื่อ item ที่เก็บได้
-        // ถ้าต้องการแสดงจำนวนไอเทมที่เก็บไว้
-        Debug.Log("Total items collected: " + collectedItems.Count);
-    }
-
-    // ฟังก์ชันแสดงข้อมูลไอเทมที่สะสม
-    public void ShowCollectedItems()
-    {
-        foreach (Gem item in collectedItems)
-        {
-            Debug.Log("Collected Item: " + item.itemName + " with value: " + item.itemValue);
-        }
-    }
-
-
-
 }

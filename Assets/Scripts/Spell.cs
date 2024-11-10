@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spell : Weapon
 {
     public int spellDamage = 35;  // ความเสียหายของ Spell
-    public float speed = 2f; // ความเร็วของ Spell
+    public float speed = 6f; // ความเร็วของ Spell
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class Spell : Weapon
             enemy.TakeDamage(damage); // เรียกฟังก์ชันให้ศัตรูรับความเสียหาย
             Destroy(gameObject);      // ทำลาย Spell หลังจากโจมตี
         }
+        Debug.Log("Play shoot");
     }
 
     public override void Move()
@@ -32,9 +33,6 @@ public class Spell : Weapon
         {
             rb.velocity = transform.right * speed; // เคลื่อนที่ในทิศทางที่กำหนด
         }
-
-        // ทำลาย Spell หลังจากเวลา 3 วินาที (สามารถปรับได้)
-        Destroy(gameObject, 3f);
     }
 
     public override void OnHitWith(Character character)

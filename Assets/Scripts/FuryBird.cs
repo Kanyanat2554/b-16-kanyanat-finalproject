@@ -7,12 +7,14 @@ public class FuryBird : Monster
     [SerializeField] private Vector2 velocity;
     [SerializeField] private Transform[] movePoints;
 
-    
+    private Player player;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Init(80);
+        DamageHit = 20;
+        player = GameObject.FindObjectOfType<Player>();
     }
 
     private void FixedUpdate()
@@ -42,5 +44,14 @@ public class FuryBird : Monster
     private void ChangeDirection()
     {
         velocity.y *= -1;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Player player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            player.TakeDamage(DamageHit);
+        }
+
     }
 }
