@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gem : MonoBehaviour
+public class FireGem : MonoBehaviour
 {
     public int gemValue = 1; // กำหนดค่าของ Gem ที่เก็บได้
 
@@ -12,8 +12,9 @@ public class Gem : MonoBehaviour
         Player player = other.GetComponent<Player>();
         if (player != null)
         {
-            player.CollectGem(this);  // เรียกฟังก์ชันใน Player เพื่อสะสม Gem
-            Destroy(gameObject);      // ทำลาย Gem หลังจากเก็บ
+            player.CollectFireGem(this);  // เรียกฟังก์ชันใน Player เพื่อสะสม Gem
+            Destroy(gameObject);
+
         }
     }
 }

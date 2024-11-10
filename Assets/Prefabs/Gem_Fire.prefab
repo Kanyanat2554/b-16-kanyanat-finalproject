@@ -141,11 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 480638671515943698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b753f93710937a4b8015002bb6bfd96, type: 3}
+  m_Script: {fileID: 11500000, guid: 21dfb785b15a701409adde99c5586f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  itemValue: 1
+  gemValue: 1
 --- !u!50 &-665945007307140815
 Rigidbody2D:
   serializedVersion: 4

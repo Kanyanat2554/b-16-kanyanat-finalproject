@@ -34,7 +34,7 @@ public class Player : Character, IShootable
             animator.SetBool("Ground", false);
             r2d.AddForce(new Vector2(0, jumpForce));
         }
-        if ((gemsCollected >= fireGemRequirement))
+        if ((fireGemCollected >= fireGemRequirement) || (waterGemCollected >= waterGemRequirement))
         {
             Shoot();
         }
@@ -76,7 +76,8 @@ public class Player : Character, IShootable
     
 
     // เก็บ Gem
-    public int gemsCollected = 0; // จำนวน Gem ที่ Player เก็บ
+    public int waterGemCollected = 0;
+    public int fireGemCollected = 0;// จำนวน Gem ที่ Player เก็บ
     public int waterGemRequirement = 3;
     public int fireGemRequirement = 5; // จำนวน Gem ที่ต้องการในการใช้ Spell
     [field: SerializeField] public GameObject Bullet { get; set; }
@@ -85,12 +86,16 @@ public class Player : Character, IShootable
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
 
-    public void CollectGem(Gem gem)
+    public void CollectWaterGem(WaterGem waterGem)
     {
-        gemsCollected += gem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
-        Debug.Log("Gems collected: " + gemsCollected);
+        waterGemCollected += waterGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
+        Debug.Log("Water Gems collected: " + waterGemCollected);  
+    }
 
-        
+    public void CollectFireGem(FireGem fireGem)
+    {
+        fireGemCollected += fireGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
+        Debug.Log("Fire Gems collected: " + fireGemCollected);
     }
 
     public void Shoot()
@@ -99,11 +104,21 @@ public class Player : Character, IShootable
         {
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Spell spell = obj.GetComponent<Spell>();
-            spell.Init(45, this);
+            spell.Init(30, this);
 
-            gemsCollected -= 5;
+            waterGemCollected -= 3;
 
-            Debug.Log("Spell Casted!");
+            Debug.Log("Water Spell Casted!");
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
+            Spell spell = obj.GetComponent<Spell>();
+            spell.Init(50, this);
+
+            fireGemCollected -= 5;
+
+            Debug.Log("Fire Spell Casted!");
         }
     }
 }
