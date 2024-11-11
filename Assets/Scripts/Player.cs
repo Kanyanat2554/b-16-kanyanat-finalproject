@@ -7,7 +7,7 @@ public class Player : Character, IShootable
     // movement
     Rigidbody2D r2d;
     Animator animator;
-    
+
     public float maxSpeed = 18f;
     public bool grounded = false;
     public Transform groundCheck;
@@ -31,19 +31,19 @@ public class Player : Character, IShootable
         float move = Input.GetAxis("Horizontal");
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("Ground", false);
+            animator.SetTrigger("idle");
             r2d.AddForce(new Vector2(0, jumpForce));
         }
 
         if (move > 0 && !facingRight)
         {
             Flip();
-        }  
+        }
         else if (move < 0 && facingRight)
         {
             Flip();
         }
-            
+
         Shoot();
     }
 
@@ -52,20 +52,20 @@ public class Player : Character, IShootable
         WaitTime += Time.fixedDeltaTime;
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        animator.SetBool("Ground", grounded);
+        //animator.SetBool("Ground", grounded);
 
-        animator.SetFloat("vSpeed", r2d.velocity.y);
+        //animator.SetFloat("isJump", r2d.velocity.y);
         float move = Input.GetAxis("Horizontal");
 
 
-        animator.SetFloat("Speed", Mathf.Abs(move));
+        //animator.SetFloat("isRun", Mathf.Abs(move));
 
         r2d.velocity = new Vector2(move * maxSpeed, r2d.velocity.y);
 
-        
+
 
         IsDead();
-        
+
     }
     void Flip()
     {
@@ -75,7 +75,7 @@ public class Player : Character, IShootable
         transform.localScale = theScale;
     }
 
-    
+
 
     // เก็บ Gem
     public int waterGemCollected = 0;
@@ -83,9 +83,10 @@ public class Player : Character, IShootable
     public int waterGemRequirement = 3;
     public int fireGemRequirement = 5; // จำนวน Gem ที่ต้องการในการใช้ Spell
     public bool facingRight = true;
+    protected IShootable shooter;
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public Transform SpawnPoint { get; set; }  // Spell Prefab ที่จะพ่นออกมา
-    
+
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
     public float BulletSpeed { get; set; }
@@ -93,7 +94,7 @@ public class Player : Character, IShootable
     public void CollectWaterGem(WaterGem waterGem)
     {
         waterGemCollected += waterGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
-        Debug.Log("Water Gems collected: " + waterGemCollected);  
+        Debug.Log("Water Gems collected: " + waterGemCollected);
     }
 
     public void CollectFireGem(FireGem fireGem)
@@ -116,10 +117,10 @@ public class Player : Character, IShootable
             {
 
                 GameObject bullet = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
-                Spell spell = Bullet.GetComponent<Spell>();
-                spell.SetDirection(facingRight); // ส่งทิศทางไปยังกระสุน
-                spell.SetSpeed(BulletSpeed);     // ตั้งค่าความเร็วให้กระสุน
-                
+                Spell spell = bullet.GetComponent<Spell>();
+
+                //spell.SetSpeed(BulletSpeed); // ตั้งค่าความเร็วให้กระสุน
+
                 spell.Init(30, this);
 
                 waterGemCollected -= 3;
@@ -130,10 +131,10 @@ public class Player : Character, IShootable
             {
 
                 GameObject bullet = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
-                Spell spell = Bullet.GetComponent<Spell>();
-                spell.SetDirection(facingRight); // ส่งทิศทางไปยังกระสุน
-                spell.SetSpeed(BulletSpeed);     // ตั้งค่าความเร็วให้กระสุน
-                
+                Spell spell = bullet.GetComponent<Spell>();
+
+                //spell.SetSpeed(BulletSpeed); // ตั้งค่าความเร็วให้กระสุน
+
                 spell.Init(50, this);
 
                 fireGemCollected -= 5;
@@ -143,7 +144,9 @@ public class Player : Character, IShootable
         }
     }
 
-    
+
+
+
 
 
 }

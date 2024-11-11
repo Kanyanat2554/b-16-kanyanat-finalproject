@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spell : Weapon
 {
-    public int spellDamage = 35;  // ความเสียหายของ Spell
+    /*public int spellDamage = 35;  // ความเสียหายของ Spell
     public float speed = 6.0f;
     public bool playerFacingRight = true;
     private Rigidbody2D rb;
@@ -32,7 +32,7 @@ public class Spell : Weapon
 
     public override void Move()
     {
-        float direction = isFacingRight ? 1 : -1;
+        float direction = GetShootDirection();
         rb.velocity = new Vector2(direction * speed, 0);
 
         // ปรับการหมุนให้กระสุนหันตามทิศทาง
@@ -45,15 +45,45 @@ public class Spell : Weapon
             character.TakeDamage(this.Damage);
         }
     }
-    public void SetDirection(bool facingRight)
-    {
-        isFacingRight = facingRight;
-    }
+    
 
     public void SetSpeed(float bulletSpeed)
     {
         speed = bulletSpeed;
+    }*/
+    [SerializeField] private float speed;
+
+    private void Start()
+    {
+        Damage = 35;
+        speed = 6.0f * GetShootDirection();
     }
+
+    // override abstract methods
+    public override void Move()
+    {
+        //Debug.Log("Banana moves with constant speed using Transform.");
+
+        // s = v * t
+        float newX = transform.position.x + speed * Time.fixedDeltaTime;
+        float newY = transform.position.y;
+        Vector2 newPosition = new Vector2(newX, newY);
+        transform.position = newPosition;
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    public override void OnHitWith(Character character)
+    {
+        if (character is Monster)
+        {
+            character.TakeDamage(this.Damage);
+        }
+    }
+
 }
 
     

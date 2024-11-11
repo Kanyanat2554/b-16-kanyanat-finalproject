@@ -7,7 +7,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int currentHp;
     public int CurrentHp { get; protected set; }
 
-    private int maxHp;
+    [SerializeField] private int maxHp;
     public int MaxHp { get; protected set; }
 
     //[SerializeField] private float movementSpeed;
@@ -44,7 +44,7 @@ public abstract class Character : MonoBehaviour
     public virtual void Init(int newCurrentHealth)
     {
         CurrentHp = newCurrentHealth;
-
+        maxHp = CurrentHp;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
