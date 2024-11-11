@@ -427,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 523259128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.99, y: 58.51, z: 0.034846608}
+  m_LocalPosition: {x: 51.99, y: 59.76, z: 0.034846608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3463,6 +3463,7 @@ MonoBehaviour:
   rb: {fileID: 1826675044}
   itemsToDrop: {fileID: 687059762226412115, guid: d46aa32f39883514fbd5241c67d4a072, type: 3}
   dropRadius: 3
+  dropPoint: {fileID: 523259129}
 --- !u!1001 &1872920913
 PrefabInstance:
   m_ObjectHideFlags: 0

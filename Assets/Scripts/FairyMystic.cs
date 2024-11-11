@@ -8,6 +8,7 @@ public class FairyMystic : Ally
     public float dropRadius = 3f; // ระยะที่ Player ต้องเข้าใกล้ถึงจะดรอปไอเท็ม
     private bool hasDropped = false;
     private Transform player;
+    public Transform dropPoint;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class FairyMystic : Ally
 
     private void DropItem()
     {
-        Instantiate(itemsToDrop, transform.position, Quaternion.identity); // สร้างไอเท็มที่ตำแหน่งของ NPC
+        Instantiate(itemsToDrop, dropPoint.position, Quaternion.identity); // สร้างไอเท็มที่ตำแหน่งของ NPC
         hasDropped = true;
     }
 }
