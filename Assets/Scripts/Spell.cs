@@ -5,10 +5,15 @@ using UnityEngine;
 public class Spell : Weapon
 {
     public int spellDamage = 35;  // ความเสียหายของ Spell
-    public float speed = 6f; // ความเร็วของ Spell
+    public float speed = 6.0f;
+    public bool playerFacingRight = true;
+    private Rigidbody2D rb;
+    private bool isFacingRight;
 
+    
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Move();
     }
 
@@ -27,14 +32,12 @@ public class Spell : Weapon
 
     public override void Move()
     {
-        // ตั้งค่าความเร็วในการเคลื่อนที่ของ Spell
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.velocity = transform.right * speed; // เคลื่อนที่ในทิศทางที่กำหนด
-        }
-    }
+        float direction = isFacingRight ? 1 : -1;
+        rb.velocity = new Vector2(direction * speed, 0);
 
+        // ปรับการหมุนให้กระสุนหันตามทิศทาง
+        transform.rotation = Quaternion.Euler(0, isFacingRight ? 0 : 180, 0);
+    }
     public override void OnHitWith(Character character)
     {
         if (character is Monster)
@@ -42,5 +45,18 @@ public class Spell : Weapon
             character.TakeDamage(this.Damage);
         }
     }
-    
+    public void SetDirection(bool facingRight)
+    {
+        isFacingRight = facingRight;
+    }
+
+    public void SetSpeed(float bulletSpeed)
+    {
+        speed = bulletSpeed;
+    }
 }
+
+    
+   
+
+
