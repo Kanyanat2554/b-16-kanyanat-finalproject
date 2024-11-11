@@ -101,13 +101,14 @@ public class Player : Character, IShootable
         fireGemCollected += fireGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
         Debug.Log("Fire Gems collected: " + fireGemCollected);
     }
+    public void AddHealth(int amount)
+    {
+        CurrentHp += amount;
+        Debug.Log("Current Health: " + CurrentHp);
+    }
 
     public void Shoot()
     {
-        
-        
-        
-
         if ((fireGemCollected >= fireGemRequirement) || (waterGemCollected >= waterGemRequirement))
         {
 
@@ -142,5 +143,7 @@ public class Player : Character, IShootable
         }
     }
 
-   
+    
+
+
 }

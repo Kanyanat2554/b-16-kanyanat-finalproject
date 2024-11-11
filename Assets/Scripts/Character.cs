@@ -50,5 +50,5 @@ public abstract class Character : MonoBehaviour
 
         Debug.Log($"({this} has {CurrentHp} left)");
     }
-
+    
 }
