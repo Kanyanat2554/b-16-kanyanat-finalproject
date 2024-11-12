@@ -107,8 +107,16 @@ public class Player : Character, IShootable
     }
     public void AddHealth(int amount)
     {
-        CurrentHp += amount;
+        CurrentHp = Mathf.Min(CurrentHp + amount, MaxHp);
         Debug.Log("Current Health: " + CurrentHp);
+    }
+    public void SetMaxHp(int newMaxHp)
+    {
+        MaxHp = newMaxHp;
+        if (CurrentHp >= MaxHp)
+        {
+            CurrentHp = MaxHp;
+        }
     }
 
     public void Shoot()
@@ -168,8 +176,5 @@ public class Player : Character, IShootable
         winTxt.text= ("You Win!!!");
         winTxt.gameObject.SetActive(true);
     }
-
-
-
 
 }

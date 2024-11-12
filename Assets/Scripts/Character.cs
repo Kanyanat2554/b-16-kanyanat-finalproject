@@ -15,14 +15,16 @@ public abstract class Character : MonoBehaviour
 
     public Animator anim;
     public Rigidbody2D rb;
+    public HealthBar healthBar;
 
     //Method
-    
 
-    
+
+
     public virtual void TakeDamage(int damage)
     {
         CurrentHp -= damage;
+        healthBar.updateHealthBar(CurrentHp);
 
         IsDead();
 
@@ -44,6 +46,7 @@ public abstract class Character : MonoBehaviour
     public virtual void Init(int newCurrentHealth)
     {
         CurrentHp = newCurrentHealth;
+        healthBar.SetMaxHealth(newCurrentHealth);
         maxHp = CurrentHp;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();

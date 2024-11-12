@@ -18,6 +18,7 @@ public class Potion : MonoBehaviour
 
             if (player != null)
             {
+                player.SetMaxHp(100);
                 player.AddHealth(randomHp); // เพิ่ม HP ให้กับ Player
             }
 
