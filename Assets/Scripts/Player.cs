@@ -6,13 +6,6 @@ using TMPro;
 
 public class Player : Character, IShootable
 {
-    int waterGemsUI = 0;
-    public int WaterGemsUI => waterGemsUI;
-
-    int fireGemsUI = 0;
-    public int FireGemsUI => fireGemsUI;
-
-
     // movement
     Rigidbody2D r2d;
     Animator animator;
@@ -108,12 +101,14 @@ public class Player : Character, IShootable
     {
         waterGemCollected += waterGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
         Debug.Log("Water Gems collected: " + waterGemCollected);
+        UpdateWaterText();
     }
 
     public void CollectFireGem(FireGem fireGem)
     {
         fireGemCollected += fireGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
         Debug.Log("Fire Gems collected: " + fireGemCollected);
+        UpdateFireText();
     }
     public void AddHealth(int amount)
     {
@@ -149,6 +144,7 @@ public class Player : Character, IShootable
                 {
                     waterGemCollected = 0;
                 }
+                UpdateWaterText();
 
                 Debug.Log("Water Spell Casted!");
             }
@@ -167,6 +163,7 @@ public class Player : Character, IShootable
                 {
                     fireGemCollected = 0;
                 }
+                UpdateFireText();
 
                 Debug.Log("Fire Spell Casted!");
             }
@@ -197,11 +194,11 @@ public class Player : Character, IShootable
 
     void UpdateWaterText()
     {
-        waterTxt.text = $"Water Gems: {WaterGemsUI}";
+        waterTxt.text = $"Water Gems: {waterGemCollected}";
     }
     void UpdateFireText()
     {
-        fireTxt.text = $"Fire Gems: {fireGemsUI}";
+        fireTxt.text = $"Fire Gems: {fireGemCollected}";
     }
 
 }

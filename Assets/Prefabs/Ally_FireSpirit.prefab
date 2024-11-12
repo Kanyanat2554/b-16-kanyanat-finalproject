@@ -146,10 +146,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
+  maxHp: 0
   anim: {fileID: -5020503829658001558}
   rb: {fileID: -737200548505726670}
+  healthBar: {fileID: 0}
   itemsToDrop:
-  - {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+  - {fileID: 7411557901588726153, guid: 48d59bea8f5eec944bfea51471d6ce6a, type: 3}
+  dropPoint: {fileID: 0}
   dropRadius: 3
 --- !u!95 &-5020503829658001558
 Animator:
