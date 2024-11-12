@@ -6,6 +6,13 @@ using TMPro;
 
 public class Player : Character, IShootable
 {
+    int waterGemsUI = 0;
+    public int WaterGemsUI => waterGemsUI;
+
+    int fireGemsUI = 0;
+    public int FireGemsUI => fireGemsUI;
+
+
     // movement
     Rigidbody2D r2d;
     Animator animator;
@@ -27,6 +34,9 @@ public class Player : Character, IShootable
         r2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         winTxt.gameObject.SetActive(false);
+        
+        UpdateWaterText();
+        UpdateFireText();
     }
 
     void Update()
@@ -135,6 +145,10 @@ public class Player : Character, IShootable
                 spell.Init(30, this);
 
                 waterGemCollected -= 3;
+                if (waterGemCollected <= 0)
+                {
+                    waterGemCollected = 0;
+                }
 
                 Debug.Log("Water Spell Casted!");
             }
@@ -149,13 +163,17 @@ public class Player : Character, IShootable
                 spell.Init(50, this);
 
                 fireGemCollected -= 5;
+                if (fireGemCollected <= 0)
+                {
+                    fireGemCollected = 0;
+                }
 
                 Debug.Log("Fire Spell Casted!");
             }
         }
     }
 
-    [SerializeField] TextMeshProUGUI winTxt;
+    [SerializeField] TextMeshProUGUI winTxt, waterTxt, fireTxt;
     [SerializeField] private GameObject winPoint;
 
     
@@ -175,6 +193,15 @@ public class Player : Character, IShootable
 
         winTxt.text= ("You Win!!!");
         winTxt.gameObject.SetActive(true);
+    }
+
+    void UpdateWaterText()
+    {
+        waterTxt.text = $"Water Gems: {WaterGemsUI}";
+    }
+    void UpdateFireText()
+    {
+        fireTxt.text = $"Fire Gems: {fireGemsUI}";
     }
 
 }
