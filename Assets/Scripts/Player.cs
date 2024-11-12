@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : Character, IShootable
 {
@@ -24,6 +26,7 @@ public class Player : Character, IShootable
         BulletSpeed = 5.0f;
         r2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        winTxt.gameObject.SetActive(false);
     }
 
     void Update()
@@ -144,7 +147,27 @@ public class Player : Character, IShootable
         }
     }
 
+    [SerializeField] TextMeshProUGUI winTxt;
+    [SerializeField] private GameObject winPoint;
 
+    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.gameObject == winPoint)
+        {
+            ShowWinText();
+        }
+    }
+
+
+    private void ShowWinText()
+    {
+
+        winTxt.text= ("You Win!!!");
+        winTxt.gameObject.SetActive(true);
+    }
 
 
 
