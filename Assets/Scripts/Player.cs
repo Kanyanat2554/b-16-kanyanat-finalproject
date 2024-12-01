@@ -113,14 +113,17 @@ public class Player : Character, IShootable
     public void AddHealth(int amount)
     {
         CurrentHp = Mathf.Min(CurrentHp + amount, MaxHp);
+        healthBar.updateHealthBar(CurrentHp); // ÍÑ»à´µ¤èÒ Health Bar
         Debug.Log("Current Health: " + CurrentHp);
     }
     public void SetMaxHp(int newMaxHp)
     {
         MaxHp = newMaxHp;
+        healthBar.SetMaxHealth(MaxHp); // ÍÑ»à´µ Max Value
         if (CurrentHp >= MaxHp)
         {
             CurrentHp = MaxHp;
+            healthBar.updateHealthBar(CurrentHp); // ÍÑ»à´µ Health Bar
         }
     }
 
@@ -194,11 +197,11 @@ public class Player : Character, IShootable
 
     void UpdateWaterText()
     {
-        waterTxt.text = $"Water Gems: {waterGemCollected}";
+        waterTxt.text = $"Water Gems: {waterGemCollected}/3";
     }
     void UpdateFireText()
     {
-        fireTxt.text = $"Fire Gems: {fireGemCollected}";
+        fireTxt.text = $"Fire Gems: {fireGemCollected}/5";
     }
 
 }

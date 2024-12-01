@@ -25,6 +25,7 @@ public abstract class Character : MonoBehaviour
         CurrentHp = newCurrentHealth;
         healthBar.SetMaxHealth(newCurrentHealth);
         maxHp = CurrentHp;
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
