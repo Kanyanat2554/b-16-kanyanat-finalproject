@@ -20,6 +20,16 @@ public abstract class Character : MonoBehaviour
     //Method
 
 
+    public virtual void Init(int newCurrentHealth)
+    {
+        CurrentHp = newCurrentHealth;
+        healthBar.SetMaxHealth(newCurrentHealth);
+        maxHp = CurrentHp;
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+
+        Debug.Log($"({this} has {CurrentHp} left)");
+    }
 
     public virtual void TakeDamage(int damage)
     {
@@ -40,18 +50,4 @@ public abstract class Character : MonoBehaviour
         }
         else return false;
     }
-    
-    
-
-    public virtual void Init(int newCurrentHealth)
-    {
-        CurrentHp = newCurrentHealth;
-        healthBar.SetMaxHealth(newCurrentHealth);
-        maxHp = CurrentHp;
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-
-        Debug.Log($"({this} has {CurrentHp} left)");
-    }
-    
 }
