@@ -197,11 +197,11 @@ public class Player : Character, IShootable
 
     void UpdateWaterText()
     {
-        waterTxt.text = $"Water Gems: {waterGemCollected}/3";
+        waterTxt.text = $"(Left Click) Water Gems: {waterGemCollected}/3";
     }
     void UpdateFireText()
     {
-        fireTxt.text = $"Fire Gems: {fireGemCollected}/5";
+        fireTxt.text = $"(Right Click) Fire Gems: {fireGemCollected}/5";
     }
 
 }
