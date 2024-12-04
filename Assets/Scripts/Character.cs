@@ -10,16 +10,11 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int maxHp;
     public int MaxHp { get; protected set; }
 
-    //[SerializeField] private float movementSpeed;
-    //public float MovementSpeed { get; set; }
-
     public Animator anim;
     public Rigidbody2D rb;
     public HealthBar healthBar;
 
     //Method
-
-
     public virtual void Init(int newCurrentHealth)
     {
         CurrentHp = newCurrentHealth;

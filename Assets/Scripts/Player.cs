@@ -1,4 +1,4 @@
-using System.Collections;
+๏ปฟusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,29 +17,32 @@ public class Player : Character, IShootable
     public LayerMask whatIsGround;
     public float jumpForce = 1200.0f;
 
-
     void Start()
     {
         Init(100);
         WaitTime = 0.0f;
         ReloadTime = 1.0f;
         BulletSpeed = 5.0f;
+
         r2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
         winTxt.gameObject.SetActive(false);
-        
+
         UpdateWaterText();
         UpdateFireText();
     }
 
     void Update()
     {
+        #region This part is from character model pack 
         float move = Input.GetAxis("Horizontal");
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("idle");
             r2d.AddForce(new Vector2(0, jumpForce));
         }
+        #endregion
 
         if (move > 0 && !facingRight)
         {
@@ -58,17 +61,10 @@ public class Player : Character, IShootable
         WaitTime += Time.fixedDeltaTime;
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        //animator.SetBool("Ground", grounded);
 
-        //animator.SetFloat("isJump", r2d.velocity.y);
         float move = Input.GetAxis("Horizontal");
 
-
-        //animator.SetFloat("isRun", Mathf.Abs(move));
-
         r2d.velocity = new Vector2(move * maxSpeed, r2d.velocity.y);
-
-
 
         IsDead();
 
@@ -81,49 +77,48 @@ public class Player : Character, IShootable
         transform.localScale = theScale;
     }
 
-
-
-    // เก็บ Gem
+    // ร ยกรงยบ Gem
     public int waterGemCollected = 0;
-    public int fireGemCollected = 0;// จำนวน Gem ที่ Player เก็บ
+    public int fireGemCollected = 0;
     public int waterGemRequirement = 3;
-    public int fireGemRequirement = 5; // จำนวน Gem ที่ต้องการในการใช้ Spell
+    public int fireGemRequirement = 5;
+
     public bool facingRight = true;
     protected IShootable shooter;
     [field: SerializeField] public GameObject Bullet { get; set; }
-    [field: SerializeField] public Transform SpawnPoint { get; set; }  // Spell Prefab ที่จะพ่นออกมา
+    [field: SerializeField] public Transform SpawnPoint { get; set; }
 
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
     public float BulletSpeed { get; set; }
 
-    public void CollectWaterGem(WaterGem waterGem)
+    public void CollectGem(WaterGem waterGem)
     {
-        waterGemCollected += waterGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
+        waterGemCollected += waterGem.gemValue; 
         Debug.Log("Water Gems collected: " + waterGemCollected);
         UpdateWaterText();
     }
 
-    public void CollectFireGem(FireGem fireGem)
+    public void CollectGem(FireGem fireGem)
     {
-        fireGemCollected += fireGem.gemValue; // เพิ่มจำนวน Gem ที่เก็บ
+        fireGemCollected += fireGem.gemValue;
         Debug.Log("Fire Gems collected: " + fireGemCollected);
         UpdateFireText();
     }
     public void AddHealth(int amount)
     {
         CurrentHp = Mathf.Min(CurrentHp + amount, MaxHp);
-        healthBar.updateHealthBar(CurrentHp); // อัปเดตค่า Health Bar
+        healthBar.updateHealthBar(CurrentHp); 
         Debug.Log("Current Health: " + CurrentHp);
     }
     public void SetMaxHp(int newMaxHp)
     {
         MaxHp = newMaxHp;
-        healthBar.SetMaxHealth(MaxHp); // อัปเดต Max Value
+        healthBar.SetMaxHealth(MaxHp); 
         if (CurrentHp >= MaxHp)
         {
             CurrentHp = MaxHp;
-            healthBar.updateHealthBar(CurrentHp); // อัปเดต Health Bar
+            healthBar.updateHealthBar(CurrentHp); 
         }
     }
 
@@ -134,11 +129,8 @@ public class Player : Character, IShootable
 
             if (Input.GetButtonDown("Fire1"))
             {
-
                 GameObject bullet = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
                 Spell spell = bullet.GetComponent<Spell>();
-
-                //spell.SetSpeed(BulletSpeed); // ตั้งค่าความเร็วให้กระสุน
 
                 spell.Init(30, this);
 
@@ -147,17 +139,15 @@ public class Player : Character, IShootable
                 {
                     waterGemCollected = 0;
                 }
+
                 UpdateWaterText();
 
                 Debug.Log("Water Spell Casted!");
             }
             if (Input.GetButtonDown("Fire2"))
             {
-
                 GameObject bullet = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
                 Spell spell = bullet.GetComponent<Spell>();
-
-                //spell.SetSpeed(BulletSpeed); // ตั้งค่าความเร็วให้กระสุน
 
                 spell.Init(50, this);
 
@@ -166,6 +156,7 @@ public class Player : Character, IShootable
                 {
                     fireGemCollected = 0;
                 }
+
                 UpdateFireText();
 
                 Debug.Log("Fire Spell Casted!");
@@ -176,22 +167,18 @@ public class Player : Character, IShootable
     [SerializeField] TextMeshProUGUI winTxt, waterTxt, fireTxt;
     [SerializeField] private GameObject winPoint;
 
-    
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (other.gameObject == winPoint)
         {
             ShowWinText();
         }
     }
 
-
     private void ShowWinText()
     {
-
-        winTxt.text= ("You Win!!!");
+        winTxt.text = ("You Win!!!");
         winTxt.gameObject.SetActive(true);
     }
 
@@ -203,5 +190,4 @@ public class Player : Character, IShootable
     {
         fireTxt.text = $"(Right Click) Fire Gems: {fireGemCollected}/5";
     }
-
 }

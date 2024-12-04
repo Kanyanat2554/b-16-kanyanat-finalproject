@@ -20,11 +20,11 @@ public class KillerBee : Monster
 
     private void FixedUpdate()
     {
-        Behavior();
+        BehaviorAttackPlayer();
     }
 
     // override abstract method
-    public override void Behavior()
+    public override void BehaviorAttackPlayer()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
@@ -54,12 +54,12 @@ public class KillerBee : Monster
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         Player player = other.GetComponent<Player>();
         if (player != null)
         {
             Debug.Log($"{other}");
-            player.TakeDamage(DamageHit);       
+            player.TakeDamage(DamageHit);
         }
     }
 }

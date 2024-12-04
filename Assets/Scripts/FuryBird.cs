@@ -19,21 +19,21 @@ public class FuryBird : Monster
 
     private void FixedUpdate()
     {
-        Behavior();
+        BehaviorAttackPlayer();
     }
 
     // override abstract method
-    public override void Behavior()
+    public override void BehaviorAttackPlayer()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
 
-        
+
         if (rb.position.y <= movePoints[0].position.y && velocity.y < 0)
         {
             ChangeDirection();
         }
 
-        
+
         else if (rb.position.y >= movePoints[1].position.y && velocity.y > 0)
         {
             ChangeDirection();

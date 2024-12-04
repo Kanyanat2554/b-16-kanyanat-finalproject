@@ -561,6 +561,14 @@ PrefabInstance:
       propertyPath: dropPoint
       value: 
       objectReference: {fileID: 1146048166}
+    - target: {fileID: -717777477348449750, guid: b95aec07d384752479291a4a8489963e, type: 3}
+      propertyPath: waterPotionToDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -717777477348449750, guid: b95aec07d384752479291a4a8489963e, type: 3}
+      propertyPath: waterPotionToDrop.Array.data[0]
+      value: 
+      objectReference: {fileID: 1094809399888126307, guid: 19ebd515e213c604cad71568d3a14739, type: 3}
     - target: {fileID: 7454832191386377985, guid: b95aec07d384752479291a4a8489963e, type: 3}
       propertyPath: m_Name
       value: Ally_WaterSpirit (1)
@@ -757,6 +765,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275013300}
     m_Modifications:
+    - target: {fileID: -8156624330641468907, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+      propertyPath: gemValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
       propertyPath: m_Name
       value: Gem_Fire (2)
@@ -1001,6 +1013,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275013300}
     m_Modifications:
+    - target: {fileID: -8156624330641468907, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+      propertyPath: gemValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
       propertyPath: m_Name
       value: Gem_Fire
@@ -1526,6 +1542,14 @@ PrefabInstance:
       propertyPath: dropPoint
       value: 
       objectReference: {fileID: 247578208}
+    - target: {fileID: -3565738231526289239, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
+      propertyPath: firePotionToDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3565738231526289239, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
+      propertyPath: firePotionToDrop.Array.data[0]
+      value: 
+      objectReference: {fileID: 7411557901588726153, guid: 48d59bea8f5eec944bfea51471d6ce6a, type: 3}
     - target: {fileID: 3197806033814222437, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.50503
@@ -1662,6 +1686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275013300}
     m_Modifications:
+    - target: {fileID: -8156624330641468907, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+      propertyPath: gemValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
       propertyPath: m_Name
       value: Gem_Fire (4)
@@ -2055,6 +2083,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275013300}
     m_Modifications:
+    - target: {fileID: -8156624330641468907, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+      propertyPath: gemValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
       propertyPath: m_Name
       value: Gem_Fire (1)
@@ -4575,6 +4607,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275013300}
     m_Modifications:
+    - target: {fileID: -8156624330641468907, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+      propertyPath: gemValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
       propertyPath: m_Name
       value: Gem_Fire (3)
@@ -4856,9 +4892,8 @@ MonoBehaviour:
   anim: {fileID: 1826675043}
   rb: {fileID: 1826675044}
   healthBar: {fileID: 0}
-  itemsToDrop: {fileID: 4222103468577391516, guid: 425afe5c9bf71334d9c805946345e53b, type: 3}
-  dropRadius: 3
   dropPoint: {fileID: 523259129}
+  potionToDrop: {fileID: 4222103468577391516, guid: 425afe5c9bf71334d9c805946345e53b, type: 3}
 --- !u!1 &1834622841
 GameObject:
   m_ObjectHideFlags: 0
@@ -5005,6 +5040,14 @@ PrefabInstance:
       propertyPath: dropPoint
       value: 
       objectReference: {fileID: 1226382071}
+    - target: {fileID: -3565738231526289239, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
+      propertyPath: firePotionToDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3565738231526289239, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
+      propertyPath: firePotionToDrop.Array.data[0]
+      value: 
+      objectReference: {fileID: 7411557901588726153, guid: 48d59bea8f5eec944bfea51471d6ce6a, type: 3}
     - target: {fileID: 3197806033814222437, guid: 37571e43cf06a894786212d8cb5ad434, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.3999996
@@ -5278,6 +5321,14 @@ PrefabInstance:
       propertyPath: dropPoint
       value: 
       objectReference: {fileID: 892414643}
+    - target: {fileID: -717777477348449750, guid: b95aec07d384752479291a4a8489963e, type: 3}
+      propertyPath: waterPotionToDrop.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -717777477348449750, guid: b95aec07d384752479291a4a8489963e, type: 3}
+      propertyPath: waterPotionToDrop.Array.data[0]
+      value: 
+      objectReference: {fileID: 1094809399888126307, guid: 19ebd515e213c604cad71568d3a14739, type: 3}
     - target: {fileID: 7454832191386377985, guid: b95aec07d384752479291a4a8489963e, type: 3}
       propertyPath: m_Name
       value: Ally_WaterSpirit
@@ -5705,6 +5756,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1275013300}
     m_Modifications:
+    - target: {fileID: -8156624330641468907, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
+      propertyPath: gemValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 480638671515943698, guid: 1b5fe227bdba1014ebe1c83f94b50331, type: 3}
       propertyPath: m_Name
       value: Gem_Fire

@@ -26,17 +26,17 @@ public class KingCobra : Monster, IShootable
         AttackRange = 45;
         player = GameObject.FindObjectOfType<Player>();
 
-        anim= GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         WaitTime += Time.fixedDeltaTime;
-        Behavior();
+        BehaviorAttackPlayer();
     }
 
     // override abstract method
-    public override void Behavior()
+    public override void BehaviorAttackPlayer()
     {
         Vector2 distance = player.transform.position - transform.position;
 

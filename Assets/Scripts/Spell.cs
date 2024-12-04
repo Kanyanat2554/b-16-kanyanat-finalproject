@@ -15,9 +15,6 @@ public class Spell : Weapon
     // override abstract methods
     public override void Move()
     {
-        //Debug.Log("Banana moves with constant speed using Transform.");
-
-        // s = v * t
         float newX = transform.position.x + speed * Time.fixedDeltaTime;
         float newY = transform.position.y;
         Vector2 newPosition = new Vector2(newX, newY);
@@ -36,7 +33,6 @@ public class Spell : Weapon
             character.TakeDamage(this.Damage);
         }
     }
-
 }
 
     
