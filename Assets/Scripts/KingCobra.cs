@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KingCobra : Monster, IShootable
 {
-    float attackRange;
+    private float attackRange;
     public float AttackRange { get { return attackRange; } set { attackRange = value; } }
 
     public Player player;

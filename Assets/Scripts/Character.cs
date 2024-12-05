@@ -29,7 +29,7 @@ public abstract class Character : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         CurrentHp -= damage;
-        healthBar.updateHealthBar(CurrentHp);
+        healthBar.UpdateHealthBar(CurrentHp);
 
         IsDead();
 

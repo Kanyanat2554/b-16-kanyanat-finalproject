@@ -66,9 +66,8 @@ public class Player : Character, IShootable
         r2d.velocity = new Vector2(move * maxSpeed, r2d.velocity.y);
 
         IsDead();
-
     }
-    void Flip()
+    private void Flip()
     {
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
@@ -109,7 +108,7 @@ public class Player : Character, IShootable
     public void AddHealth(int amount)
     {
         CurrentHp = Mathf.Min(CurrentHp + amount, MaxHp);
-        healthBar.updateHealthBar(CurrentHp); 
+        healthBar.UpdateHealthBar(CurrentHp); 
         Debug.Log("Current Health: " + CurrentHp);
     }
     public void SetMaxHp(int newMaxHp)
@@ -119,7 +118,7 @@ public class Player : Character, IShootable
         if (CurrentHp >= MaxHp)
         {
             CurrentHp = MaxHp;
-            healthBar.updateHealthBar(CurrentHp); 
+            healthBar.UpdateHealthBar(CurrentHp); 
         }
     }
 
@@ -185,11 +184,11 @@ public class Player : Character, IShootable
         winTxt.gameObject.SetActive(true);
     }
 
-    void UpdateWaterText()
+    private void UpdateWaterText()
     {
         waterTxt.text = $"(Left Click) Water Gems: {waterGemCollected}/3";
     }
-    void UpdateFireText()
+    private void UpdateFireText()
     {
         fireTxt.text = $"(Right Click) Fire Gems: {fireGemCollected}/5";
     }
