@@ -28,7 +28,6 @@ public class KingCobra : Monster, IShootable
 
         anim = GetComponent<Animator>();
     }
-
     void FixedUpdate()
     {
         WaitTime += Time.fixedDeltaTime;

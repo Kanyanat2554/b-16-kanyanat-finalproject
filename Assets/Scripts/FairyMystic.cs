@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FairyMystic : Ally, IDroppable
 {
-    public GameObject potionToDrop;
+    [SerializeField] private GameObject potionToDrop;
 
     private void Start()
     {

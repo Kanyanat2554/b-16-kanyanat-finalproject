@@ -11,8 +11,8 @@ public class FuryBird : Monster
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         Init(80);
+        rb = GetComponent<Rigidbody2D>();
         DamageHit = 20;
         player = GameObject.FindObjectOfType<Player>();
     }

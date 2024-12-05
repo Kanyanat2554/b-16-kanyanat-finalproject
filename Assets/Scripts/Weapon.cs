@@ -20,7 +20,11 @@ public abstract class Weapon : MonoBehaviour
 
     //Abstract Method
     public abstract void OnHitWith(Character character);
-    public abstract void Move();
+
+    public virtual void Move()
+    {
+        Debug.Log("Weapon is moving");
+    }
 
     public void Init(int damage, IShootable _owner)
     {

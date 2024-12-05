@@ -11,8 +11,8 @@ public class KillerBee : Monster
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         Init(50);
+        rb = GetComponent<Rigidbody2D>();
         DamageHit = 10;
         player = GameObject.FindObjectOfType<Player>();
     }
