@@ -19,12 +19,14 @@ public class FairyMystic : Ally, IDroppable
         }
     }
 
+    // DropIem() from Interface IDroppable
     public void DropItem()
     {
         Instantiate(potionToDrop, dropPoint.position, Quaternion.identity);
         hasDropped = true;
     }
 
+    //Override from Class Ally
     public override void BehaviorToPlayer()
     {
         DropItem();

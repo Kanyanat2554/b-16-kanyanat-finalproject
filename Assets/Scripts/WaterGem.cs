@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterGem : MonoBehaviour
 {
-    public int gemValue = 1;
+    public int gemValue = 1; //Fix a value of water gem
     private void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.GetComponent<Player>();

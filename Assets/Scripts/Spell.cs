@@ -12,7 +12,7 @@ public class Spell : Weapon
         speed = 6.0f * GetShootDirection();
     }
 
-    // override abstract methods
+    // override from Class Weapon
     public override void Move()
     {
         float newX = transform.position.x + speed * Time.fixedDeltaTime;
@@ -26,6 +26,7 @@ public class Spell : Weapon
         Move();
     }
 
+    // override from Class Weapon
     public override void OnHitWith(Character character)
     {
         if (character is Monster)

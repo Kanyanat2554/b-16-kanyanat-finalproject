@@ -20,4 +20,6 @@ public class CameraFollow : MonoBehaviour
             transform.position = smoothedPosition;
         }
     }
+
+    //Reference Tutorial: https://www.youtube.com/watch?v=MFQhpwc6cKE
 }

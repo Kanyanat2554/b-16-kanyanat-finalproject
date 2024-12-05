@@ -6,7 +6,6 @@ using TMPro;
 
 public class Player : Character, IShootable
 {
-    // movement
     Rigidbody2D r2d;
     Animator animator;
 
@@ -77,7 +76,7 @@ public class Player : Character, IShootable
         transform.localScale = theScale;
     }
 
-    // à¡çº Gem
+    // Collect Gems & Update HP & Shoot
     public int waterGemCollected = 0;
     public int fireGemCollected = 0;
     public int waterGemRequirement = 3;
@@ -92,6 +91,7 @@ public class Player : Character, IShootable
     public float WaitTime { get; set; }
     public float BulletSpeed { get; set; }
 
+    //Method Overloading
     public void CollectGem(WaterGem waterGem)
     {
         waterGemCollected += waterGem.gemValue; 
@@ -99,6 +99,7 @@ public class Player : Character, IShootable
         UpdateWaterText();
     }
 
+    //Method Overloading
     public void CollectGem(FireGem fireGem)
     {
         fireGemCollected += fireGem.gemValue;
@@ -122,6 +123,7 @@ public class Player : Character, IShootable
         }
     }
 
+    //Shoot() from Interface IShootable
     public void Shoot()
     {
         if ((fireGemCollected >= fireGemRequirement) || (waterGemCollected >= waterGemRequirement))
@@ -164,6 +166,7 @@ public class Player : Character, IShootable
         }
     }
 
+    // Display UI Text
     [SerializeField] TextMeshProUGUI winTxt, waterTxt, fireTxt;
     [SerializeField] private GameObject winPoint;
 

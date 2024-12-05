@@ -18,11 +18,10 @@ public abstract class Weapon : MonoBehaviour
     }
     protected IShootable shooter;
 
-    // abstract methods
+    //Abstract Method
     public abstract void OnHitWith(Character character);
     public abstract void Move();
 
-    // method
     public void Init(int damage, IShootable _owner)
     {
         Damage = damage;

@@ -22,6 +22,6 @@ public abstract class Monster : Character
         BehaviorAttackPlayer();
     }
 
-    // abstract method
+    // Abstract Method
     public abstract void BehaviorAttackPlayer();
 }

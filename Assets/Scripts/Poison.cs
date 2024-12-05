@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Poison : Weapon
 {
+    //Override from Class Weapon
     public override void Move()
     {
         Debug.Log("Poison is moving");
@@ -17,12 +18,11 @@ public class Poison : Weapon
         }
     }
 
-
     private KingCobra sourceEnemy;
 
     public void Init(int damage, KingCobra enemy)
     {
-        this.damage = 30;  // µÑé§¤èÒ¤ÇÒÁàÊÕÂËÒÂ¢Í§ Poison
+        this.damage = 30;
         this.sourceEnemy = enemy;
     }
 

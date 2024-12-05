@@ -22,7 +22,7 @@ public class FuryBird : Monster
         BehaviorAttackPlayer();
     }
 
-    // override abstract method
+    //Override from class Monster
     public override void BehaviorAttackPlayer()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
@@ -39,8 +39,6 @@ public class FuryBird : Monster
             ChangeDirection();
         }
     }
-
-    // method
     private void ChangeDirection()
     {
         velocity.y *= -1;
@@ -52,6 +50,5 @@ public class FuryBird : Monster
         {
             player.TakeDamage(DamageHit);
         }
-
     }
 }

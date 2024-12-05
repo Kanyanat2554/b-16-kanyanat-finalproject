@@ -14,7 +14,7 @@ public abstract class Character : MonoBehaviour
     public Rigidbody2D rb;
     public HealthBar healthBar;
 
-    //Method
+    //Polymorphism Method Overriding
     public virtual void Init(int newCurrentHealth)
     {
         CurrentHp = newCurrentHealth;
@@ -27,6 +27,7 @@ public abstract class Character : MonoBehaviour
         Debug.Log($"({this} has {CurrentHp} left)");
     }
 
+    //Polymorphism Method Overriding
     public virtual void TakeDamage(int damage)
     {
         CurrentHp -= damage;

@@ -35,7 +35,7 @@ public class KingCobra : Monster, IShootable
         BehaviorAttackPlayer();
     }
 
-    // override abstract method
+    //Override from Class Monster
     public override void BehaviorAttackPlayer()
     {
         Vector2 distance = player.transform.position - transform.position;
@@ -47,7 +47,7 @@ public class KingCobra : Monster, IShootable
         }
     }
 
-    // method
+    //Shoot() from Interface IShootable
     public void Shoot()
     {
         if (WaitTime >= ReloadTime)
@@ -56,8 +56,6 @@ public class KingCobra : Monster, IShootable
             GameObject obj = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
             Poison poison = obj.GetComponent<Poison>();
             poison.Init(30, this);
-            //GetComponent Script Rock from obj (bullet)
-            //initialize Rock's attributes
 
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
             if (rb != null)
@@ -69,6 +67,5 @@ public class KingCobra : Monster, IShootable
             Destroy(poison, bulletLifeTime);
             WaitTime = 0;
         }
-
     }
 }

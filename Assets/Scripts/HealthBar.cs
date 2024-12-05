@@ -11,12 +11,9 @@ public class HealthBar : MonoBehaviour
     {
         healthSlider.maxValue = health;
         healthSlider.value = health;
-
-        //Debug.Log($"{healthSlider.value} / {healthSlider.maxValue}");
     }
     public void updateHealthBar(int health)
     {
         healthSlider.value = health;
-        //healthSlider.maxValue = health;
     }
 }

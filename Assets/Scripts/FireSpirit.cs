@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireSpirit : Ally, IDroppable
 {
     public GameObject[] firePotionToDrop;
+
+    // DropIem() from Interface IDroppable
     public void DropItem()
     {
         if (firePotionToDrop.Length > 0)
@@ -24,6 +26,8 @@ public class FireSpirit : Ally, IDroppable
             hasDropped = true;
         }
     }
+
+    //Override from class Ally
     public override void BehaviorToPlayer()
     {
         DropItem();

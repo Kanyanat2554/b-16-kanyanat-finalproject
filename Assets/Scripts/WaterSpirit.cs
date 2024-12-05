@@ -15,10 +15,13 @@ public class WaterSpirit : Ally, IDroppable
         }
     }
 
+    //Override from class Ally
     public override void BehaviorToPlayer()
     {
         DropItem();
     }
+
+    // DropIem() from Interface IDroppable
     public void DropItem()
     {
         if (waterPotionToDrop.Length > 0)

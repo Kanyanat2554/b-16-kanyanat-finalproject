@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KillerBee : Monster
 {
-
     [SerializeField] private Vector2 velocity;
     [SerializeField] private Transform[] movePoints;
 
@@ -23,7 +22,7 @@ public class KillerBee : Monster
         BehaviorAttackPlayer();
     }
 
-    // override abstract method
+    // Override from class Monster
     public override void BehaviorAttackPlayer()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
@@ -41,12 +40,9 @@ public class KillerBee : Monster
         }
     }
 
-    // method
     private void FlipCharacter()
     {
         velocity *= -1;
-
-
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
